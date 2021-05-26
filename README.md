@@ -1,6 +1,6 @@
 # Truebill Takehome
 
-All code for this is on `notebooks/tb.ipynb`. I usually dont work a lot in Jupyter, but for the exploratory scope of this problem set it seemed appropriate.
+All code for this is in `notebooks/tb.ipynb`. I usually dont work a lot in Jupyter, but for the exploratory scope of this problem set it seemed appropriate. The requirements for running are included in `requirements.txt`
 
 *Note*: I excluded `data/tb_data_team_homework.csv` from git as to not make you data open to the public :). It will have to be added in there manually in order to run the notebook.
 
@@ -37,7 +37,8 @@ Here I used a simple random forest classifier to perform the initial classificat
 Standard classifier measurements such as accuracy scores and precision/recall/f1 on the class level are useful in evaluating our initial fit. We can calculate these by creating a validation split fom our training data (in addition to the 10% holdout from step 1).
 
 Overall our classifier is very good at providing class predictions for our synthetically labeled dataset. The key word there is that the labels are generated synthetically. A manual (or rule based) labeling approach would make me far more confident that our classifier is accurately performing the classification task we are after.
-An additional validation step could be to look at the Levenshtein Distances between strings within classified groups. If a group in our holdout set has a high average partial match score, we could feel more confident that the classifier has learned a proper representation of transaction descriptions.
+An additional validation step could be to look at the Levenshtein Distances between strings within classified groups. If a group in our holdout set has a high average partial match score, we could feel more confident that the classifier has learned a proper representation of transaction descriptions. The classifier could also
+be improved by a broader hyperparameter search that includes using a varying `n_components` when doing SVD.
 
 In a production-scale system, I would approach this task with a different classifier. In particular I would use something that can be partially fit in batches such as a linear classifier with SGD training. I would also consider that an easier task for an individual classifier is to do binary classification on a single class. So you could build 20 individual classifiers.
 
