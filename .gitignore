@@ -5,6 +5,7 @@ __pycache__/
 
 .idea/
 venv/
+data/tb_data_team_homework.csv
 
 # C extensions
 *.so
